@@ -63,9 +63,11 @@
 				"GlobalShadows": true,
 				"Ambient": [0.35, 0.35, 0.35],
 				"OutdoorAmbient": [0.35, 0.35, 0.35],
+				"Brightness": 2,
 				"Technology": "ShadowMap",
 				"EnvironmentDiffuseScale": 1,
 				"EnvironmentSpecularScale": 1,
+				"GeographicLatitude": 0,
 				"ClockTime": 12
 			},
 			"$path": "assets/lighting"
