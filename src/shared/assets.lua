@@ -4,5 +4,9 @@ return {
 		game = {
 			white_square = "rbxassetid://17010940576",
 		},
+		ui = {
+			ball = "rbxassetid://17011300468",
+			blur = "rbxassetid://17011099975",
+		},
 	},
 }

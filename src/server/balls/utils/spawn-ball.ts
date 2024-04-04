@@ -1,7 +1,7 @@
 import { CollectionService, Workspace } from "@rbxts/services";
-import { ATTRIBUTES } from "server/constants/attributes";
-import { BALLS } from "server/constants/ball";
-import { TAGS } from "server/constants/tags";
+import { ATTRIBUTES } from "shared/constants/attributes";
+import { BALLS } from "shared/constants/ball";
+import { TAGS } from "shared/constants/tags";
 
 function applyRandomImpulse(ball: BasePart, min: number, max: number) {
 	const impulseX = math.random(min, max);

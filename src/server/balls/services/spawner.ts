@@ -1,4 +1,4 @@
-import { BALL_SPAWN_INTERVAL } from "server/constants/ball";
+import { BALL_SPAWN_INTERVAL } from "shared/constants/ball";
 import { spawnBall } from "../utils";
 
 export async function initSpawnerService() {

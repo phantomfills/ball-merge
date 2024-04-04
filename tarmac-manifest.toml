@@ -2,3 +2,13 @@
 hash = "4a18978f8a150784b54843d68d1d99194aa8b0769e3af6369d42399491b48210"
 id = 17010940576
 packable = false
+
+[inputs."assets/images/ui/ball.png"]
+hash = "a817db6b6fa1ecd568c9d27246e6c62bb9dfe26e61d3b32869a9d57c2e078488"
+id = 17011300468
+packable = false
+
+[inputs."assets/images/ui/blur.png"]
+hash = "d1b211a8eaaf1a834836d63b984aaf85538b10e34a714d06fc65ba0faf440af6"
+id = 17011099975
+packable = false

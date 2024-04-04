@@ -1,8 +1,8 @@
 import { CollectionService } from "@rbxts/services";
-import { TAGS } from "server/constants/tags";
+import { TAGS } from "shared/constants/tags";
 import { spawnBall } from "../utils";
-import { ATTRIBUTES } from "server/constants/attributes";
-import { ballNumberIsOutOfBounds, BALLS } from "server/constants/ball";
+import { ATTRIBUTES } from "shared/constants/attributes";
+import { ballNumberIsOutOfBounds, BALLS } from "shared/constants/ball";
 import { createMergeParticles } from "shared/utils/vfx";
 
 function handleBallAdded(ball: Instance) {
