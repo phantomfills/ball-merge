@@ -15,9 +15,9 @@ function applyRandomImpulse(ball: BasePart, min: number, max: number) {
 
 export function spawnBall(ballNumber: number, impulse: boolean = false, position: Vector3 = new Vector3(0, 10, 0)) {
 	const ballIndex = ballNumber - 1;
-	const ball1Template = BALLS[ballIndex];
+	const ballTemplate = BALLS[ballIndex];
 
-	const ball = ball1Template.Clone();
+	const ball = ballTemplate.Clone();
 	ball.PivotTo(new CFrame(position));
 	ball.SetAttribute(ATTRIBUTES.BALL_NUMBER, ballNumber);
 	ball.Parent = Workspace;

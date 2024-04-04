@@ -12,13 +12,32 @@ interface ReplicatedStorage extends Instance {
 	assets: Folder & {
 		balls: Folder & {
 			ball_4: Part;
+			ball_13: Part & {
+				particles: ParticleEmitter;
+				face: Decal;
+			};
 			ball_8: Part;
+			ball_11: Part & {
+				particles: ParticleEmitter;
+				face: Decal;
+			};
 			ball_5: Part;
 			ball_1: Part;
+			ball_15: Part & {
+				face: Decal;
+			};
 			ball_6: Part;
 			ball_7: Part;
 			ball_2: Part;
 			ball_3: Part;
+			ball_14: Part & {
+				particles: ParticleEmitter;
+				face: Decal;
+			};
+			ball_12: Part & {
+				particles: ParticleEmitter;
+				face: Decal;
+			};
 			ball_10: Part & {
 				face: Decal;
 			};
@@ -138,7 +157,7 @@ interface ReplicatedStorage extends Instance {
 						};
 					};
 				};
-				services: ModuleScript;
+				["react-roblox"]: ModuleScript;
 				["set-timeout"]: Folder & {
 					out: ModuleScript & {
 						["set-countdown"]: ModuleScript;
@@ -179,36 +198,6 @@ interface ReplicatedStorage extends Instance {
 						applyMiddleware: ModuleScript;
 						types: ModuleScript;
 					};
-				};
-				["react-roblox"]: ModuleScript;
-				flipper: Folder & {
-					typings: Folder;
-					src: ModuleScript & {
-						isMotor: ModuleScript;
-						Spring: ModuleScript;
-						GroupMotor: ModuleScript;
-						Signal: ModuleScript;
-						SingleMotor: ModuleScript;
-						Instant: ModuleScript;
-						Linear: ModuleScript;
-						BaseMotor: ModuleScript;
-					};
-				};
-				react: ModuleScript & {
-					tags: ModuleScript;
-				};
-				["react-reflex"]: ModuleScript & {
-					React: ModuleScript;
-					hooks: Folder & {
-						useSelector: ModuleScript;
-						useSelectorCreator: ModuleScript;
-						useProducer: ModuleScript;
-					};
-					components: Folder & {
-						ReflexContext: ModuleScript;
-						ReflexProvider: ModuleScript;
-					};
-					Reflex: ModuleScript;
 				};
 				ReactLua: Folder & {
 					node_modules: Folder & {
@@ -662,6 +651,36 @@ interface ReplicatedStorage extends Instance {
 					ReactDevtoolsExtensions: ModuleScript;
 					ReactDebugTools: ModuleScript;
 					ReactCache: ModuleScript;
+				};
+				services: ModuleScript;
+				react: ModuleScript & {
+					tags: ModuleScript;
+				};
+				["react-reflex"]: ModuleScript & {
+					React: ModuleScript;
+					hooks: Folder & {
+						useSelector: ModuleScript;
+						useSelectorCreator: ModuleScript;
+						useProducer: ModuleScript;
+					};
+					components: Folder & {
+						ReflexContext: ModuleScript;
+						ReflexProvider: ModuleScript;
+					};
+					Reflex: ModuleScript;
+				};
+				flipper: Folder & {
+					typings: Folder;
+					src: ModuleScript & {
+						isMotor: ModuleScript;
+						Spring: ModuleScript;
+						GroupMotor: ModuleScript;
+						Signal: ModuleScript;
+						SingleMotor: ModuleScript;
+						Instant: ModuleScript;
+						Linear: ModuleScript;
+						BaseMotor: ModuleScript;
+					};
 				};
 				types: Folder & {
 					include: Folder & {

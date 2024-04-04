@@ -21,7 +21,7 @@ function handleBallAdded(ball: Instance) {
 		const newBallNumber = ballNumber + 1;
 		if (ballNumberIsOutOfBounds(newBallNumber)) return;
 
-		spawnBall(ballNumber + 1, false, ball.Position);
+		spawnBall(ballNumber + 1, false, ball.Position.add(new Vector3(0, 2.5, 0)));
 
 		ball.Destroy();
 		touchedBall.Destroy();

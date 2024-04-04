@@ -2,7 +2,7 @@ import { ReplicatedStorage } from "@rbxts/services";
 
 const ballsFolder = ReplicatedStorage.assets.balls;
 
-export const BALL_SPAWN_INTERVAL = 10;
+export const BALL_SPAWN_INTERVAL = 1;
 
 export const BALLS = [
 	ballsFolder.ball_1,
@@ -15,6 +15,11 @@ export const BALLS = [
 	ballsFolder.ball_8,
 	ballsFolder.ball_9,
 	ballsFolder.ball_10,
+	ballsFolder.ball_11,
+	ballsFolder.ball_12,
+	ballsFolder.ball_13,
+	ballsFolder.ball_14,
+	ballsFolder.ball_15,
 ] as const;
 
 export function ballNumberIsOutOfBounds(ballNumber: number) {
