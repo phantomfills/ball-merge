@@ -40,6 +40,9 @@
 			"$className": "Workspace",
 			"$properties": {
 				"FilteringEnabled": true
+			}, 
+			"map": {
+				"$path": "assets/models/map.rbxm"
 			}
 		},
 		"HttpService": {
@@ -52,6 +55,27 @@
 			"$className": "SoundService",
 			"$properties": {
 				"RespectFilteringEnabled": true
+			}
+		},
+		"Lighting": {
+			"$className": "Lighting",
+			"$properties": {
+				"GlobalShadows": true,
+				"Ambient": [0.35, 0.35, 0.35],
+				"OutdoorAmbient": [0.35, 0.35, 0.35],
+				"Technology": "ShadowMap",
+				"EnvironmentDiffuseScale": 1,
+				"EnvironmentSpecularScale": 1,
+				"ClockTime": 12
+			},
+			"$path": "assets/lighting"
+		},
+		"MaterialService": {
+			"$className": "MaterialService",
+			"$properties": {
+				"Use2022MaterialsXml": {
+					"Bool": true
+				}
 			}
 		}
 	}
