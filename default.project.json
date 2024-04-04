@@ -25,6 +25,12 @@
 			},
 			"TS": {
 				"$path": "out/shared"
+			},
+			"assets": {
+				"$className": "Folder",
+				"balls": {
+					"$path": "assets/models/balls"
+				}
 			}
 		},
 		"StarterPlayer": {
