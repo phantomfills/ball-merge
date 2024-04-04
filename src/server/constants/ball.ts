@@ -2,6 +2,8 @@ import { ReplicatedStorage } from "@rbxts/services";
 
 const ballsFolder = ReplicatedStorage.assets.balls;
 
+export const BALL_SPAWN_INTERVAL = 1;
+
 export const BALLS = [
 	ballsFolder.ball_1,
 	ballsFolder.ball_2,
