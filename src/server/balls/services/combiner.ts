@@ -2,7 +2,8 @@ import { CollectionService } from "@rbxts/services";
 import { TAGS } from "server/constants/tags";
 import { spawnBall } from "../utils";
 import { ATTRIBUTES } from "server/constants/attributes";
-import { ballNumberIsOutOfBounds } from "server/constants/ball";
+import { ballNumberIsOutOfBounds, BALLS } from "server/constants/ball";
+import { createMergeParticles } from "shared/utils/vfx";
 
 function handleBallAdded(ball: Instance) {
 	if (!ball.IsA("BasePart")) return;
@@ -21,7 +22,15 @@ function handleBallAdded(ball: Instance) {
 		const newBallNumber = ballNumber + 1;
 		if (ballNumberIsOutOfBounds(newBallNumber)) return;
 
-		spawnBall(ballNumber + 1, false, ball.Position.add(new Vector3(0, 2.5, 0)));
+		const newPosition = ball.Position.add(new Vector3(0, 2.5, 0));
+		spawnBall(ballNumber + 1, false, newPosition);
+		createMergeParticles(
+			newPosition,
+			newBallNumber,
+			newBallNumber / 5,
+			newBallNumber * 2.5,
+			BALLS[newBallNumber - 1].Color,
+		);
 
 		ball.Destroy();
 		touchedBall.Destroy();
