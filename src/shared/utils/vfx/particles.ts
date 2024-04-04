@@ -1,4 +1,5 @@
 import { Debris, Workspace } from "@rbxts/services";
+import { images } from "shared/assets";
 
 export function createMergeParticles(
 	position: Vector3,
@@ -20,7 +21,7 @@ export function createMergeParticles(
 
 	const particleEmitter = new Instance("ParticleEmitter");
 	particleEmitter.Color = new ColorSequence(color);
-	particleEmitter.Texture = "rbxassetid://13993227947";
+	particleEmitter.Texture = images.game.white_square;
 	particleEmitter.Size = new NumberSequence(size);
 	particleEmitter.SpreadAngle = new Vector2(40, 40);
 	particleEmitter.RotSpeed = new NumberRange(40);
