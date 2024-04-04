@@ -10,6 +10,11 @@ export const BALLS = [
 	ballsFolder.ball_3,
 	ballsFolder.ball_4,
 	ballsFolder.ball_5,
+	ballsFolder.ball_6,
+	ballsFolder.ball_7,
+	ballsFolder.ball_8,
+	ballsFolder.ball_9,
+	ballsFolder.ball_10,
 ] as const;
 
 export function ballNumberIsOutOfBounds(ballNumber: number) {
