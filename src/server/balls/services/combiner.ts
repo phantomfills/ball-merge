@@ -26,9 +26,9 @@ function handleBallAdded(ball: Instance) {
 		spawnBall(ballNumber + 1, false, newPosition);
 		createMergeParticles(
 			newPosition,
-			newBallNumber,
-			newBallNumber / 5,
-			newBallNumber * 2.5,
+			newBallNumber ^ 2,
+			0.5,
+			(newBallNumber * 10) ^ 0.75,
 			BALLS[newBallNumber - 1].Color,
 		);
 
