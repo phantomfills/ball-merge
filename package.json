@@ -24,6 +24,7 @@
     "typescript": "^5.4.3"
   },
   "dependencies": {
+    "@rbxts/catppuccin": "^1.0.2",
     "@rbxts/pretty-react-hooks": "^0.4.2",
     "@rbxts/react": "^0.3.6",
     "@rbxts/react-reflex": "^0.3.4",

@@ -81,8 +81,8 @@
 		"MaterialService": {
 			"$className": "MaterialService",
 			"$properties": {
-				"Use2022MaterialsXml": {
-					"Bool": true
+				"Use2022Materials": {
+					"Bool": false
 				}
 			}
 		}
