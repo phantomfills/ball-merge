@@ -1,4 +1,4 @@
-import React = require("@rbxts/react");
+import React from "@rbxts/react";
 import { Frame } from "../ui/frame";
 import { Outline } from "../ui/outline";
 import { Image } from "../ui/image";
