@@ -22,6 +22,7 @@ export function spawnBall(ballNumber: number, impulse: boolean = false, position
 	ball.SetAttribute(ATTRIBUTES.BALL_NUMBER, ballNumber);
 	ball.Parent = Workspace;
 	ball.SetNetworkOwner(undefined);
+	ball.Massless = true;
 
 	CollectionService.AddTag(ball, TAGS.BALL);
 
