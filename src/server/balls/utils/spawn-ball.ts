@@ -33,3 +33,8 @@ export function spawnBall(ballNumber: number, impulse: boolean = false, position
 
 	applyRandomImpulse(ball, MIN_RANDOM_IMPULSE, MAX_RANDOM_IMPULSE);
 }
+
+export function spawnRandomBall(impulse?: boolean, position?: Vector3) {
+	const ballNumber = math.random(1, 3);
+	spawnBall(ballNumber, impulse, position);
+}
