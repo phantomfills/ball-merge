@@ -3,6 +3,9 @@ import { ATTRIBUTES } from "shared/constants/attributes";
 import { BALLS } from "shared/constants/ball";
 import { TAGS } from "shared/constants/tags";
 
+const MIN_RANDOM_IMPULSE = -35;
+const MAX_RANDOM_IMPULSE = 35;
+
 function applyRandomImpulse(ball: BasePart, min: number, max: number) {
 	const impulseX = math.random(min, max);
 	const impulseY = math.random(min, max);
@@ -28,5 +31,5 @@ export function spawnBall(ballNumber: number, impulse: boolean = false, position
 
 	if (!impulse) return;
 
-	applyRandomImpulse(ball, -10, 10);
+	applyRandomImpulse(ball, MIN_RANDOM_IMPULSE, MAX_RANDOM_IMPULSE);
 }
