@@ -3,20 +3,21 @@ import { ATTRIBUTES } from "shared/constants/attributes";
 import { BALLS } from "shared/constants/ball";
 import { TAGS } from "shared/constants/tags";
 
-const MIN_RANDOM_IMPULSE = -35;
-const MAX_RANDOM_IMPULSE = 35;
-
-function applyRandomImpulse(ball: BasePart, min: number, max: number) {
+export function getRandomImpulse(min: number, max: number) {
 	const impulseX = math.random(min, max);
 	const impulseY = math.random(min, max);
 	const impulseZ = math.random(min, max);
 
 	const impulse = new Vector3(impulseX, impulseY, impulseZ);
 
-	ball.ApplyImpulse(impulse);
+	return impulse;
 }
 
-export function spawnBall(ballNumber: number, impulse: boolean = false, position: Vector3 = new Vector3(0, 10, 0)) {
+export function spawnBall(
+	ballNumber: number,
+	impulse: Vector3 = new Vector3(0, 0, 0),
+	position: Vector3 = new Vector3(0, 10, 0),
+) {
 	const ballIndex = ballNumber - 1;
 	const ballTemplate = BALLS[ballIndex];
 
@@ -29,12 +30,10 @@ export function spawnBall(ballNumber: number, impulse: boolean = false, position
 
 	CollectionService.AddTag(ball, TAGS.BALL);
 
-	if (!impulse) return;
-
-	applyRandomImpulse(ball, MIN_RANDOM_IMPULSE, MAX_RANDOM_IMPULSE);
+	ball.ApplyImpulse(impulse);
 }
 
-export function spawnRandomBall(impulse?: boolean, position?: Vector3) {
+export function spawnRandomBall(impulse?: Vector3, position?: Vector3) {
 	const ballNumber = math.random(1, 3);
 	spawnBall(ballNumber, impulse, position);
 }

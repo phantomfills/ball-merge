@@ -22,8 +22,20 @@ function handleBallAdded(ball: Instance) {
 		const newBallNumber = ballNumber + 1;
 		if (ballNumberIsOutOfBounds(newBallNumber)) return;
 
+		// Find max velocity of the two balls and apply it to the new ball
+		const ballVelocity1 = ball.AssemblyLinearVelocity;
+		const ballVelocity2 = touchedBall.AssemblyLinearVelocity;
+
+		const ballVelocityMagnitude1 = ballVelocity1.Magnitude;
+		const ballVelocityMagnitude2 = ballVelocity2.Magnitude;
+
+		const maxBallVelocityMagnitude = math.max(ballVelocityMagnitude1, ballVelocityMagnitude2);
+		const impulseToApply = (
+			maxBallVelocityMagnitude === ballVelocityMagnitude1 ? ballVelocity1 : ballVelocity2
+		).mul(10); // Multiply by 10 to make the new ball go faster
+
 		const newPosition = ball.Position.add(new Vector3(0, 2.5, 0));
-		spawnBall(ballNumber + 1, false, newPosition);
+		spawnBall(ballNumber + 1, impulseToApply, newPosition);
 		createMergeParticles(
 			newPosition,
 			newBallNumber * 2,

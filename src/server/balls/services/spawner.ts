@@ -1,7 +1,10 @@
 import { BALL_SPAWN_INTERVAL } from "shared/constants/ball";
-import { spawnRandomBall } from "../utils";
+import { getRandomImpulse, spawnRandomBall } from "../utils";
 import { observeTag } from "@rbxts/observers";
 import { TAGS } from "shared/constants/tags";
+
+const BALL_IMPULSE_MIN = -35;
+const BALL_IMPULSE_MAX = 35;
 
 export async function initSpawnerService() {
 	observeTag(TAGS.BALL_SPAWNER, (ballSpawner: BasePart) => {
@@ -10,7 +13,10 @@ export async function initSpawnerService() {
 		const ballSpawnerThread = task.spawn(() => {
 			for (;;) {
 				task.wait(BALL_SPAWN_INTERVAL);
-				spawnRandomBall(true, ballSpawnPosition);
+
+				const impulse = getRandomImpulse(BALL_IMPULSE_MIN, BALL_IMPULSE_MAX);
+
+				spawnRandomBall(impulse, ballSpawnPosition);
 			}
 		});
 
