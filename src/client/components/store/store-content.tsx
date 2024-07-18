@@ -9,10 +9,12 @@ import { Text } from "../ui/text";
 import { style } from "client/constants/style";
 import { fonts } from "client/constants/fonts";
 import { MarketplaceService, Players } from "@rbxts/services";
+import { playSound } from "client/utils/sound";
+import { SOUNDS } from "client/constants/sounds";
 
 export function StoreContent() {
-	const promptPurchase = (id: number) => {
-		return async () => MarketplaceService.PromptProductPurchase(Players.LocalPlayer, id);
+	const promptPurchase = async (id: number) => {
+		MarketplaceService.PromptProductPurchase(Players.LocalPlayer, id);
 	};
 
 	return (
@@ -68,7 +70,12 @@ export function StoreContent() {
 										Size={new UDim2(1, 0, 1, 0)}
 										BackgroundTransparency={1}
 										ZIndex={2}
-										Event={{ MouseButton1Click: promptPurchase(id) }}
+										Event={{
+											MouseButton1Click: () => {
+												playSound(SOUNDS.buy);
+												promptPurchase(id);
+											},
+										}}
 									/>
 								</Frame>
 							</Frame>

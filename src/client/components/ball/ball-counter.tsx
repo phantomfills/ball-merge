@@ -11,6 +11,8 @@ import { useSelector } from "@rbxts/react-reflex";
 import { selectPage } from "client/store/page";
 import { lerpBinding, Spring, useMotor } from "@rbxts/pretty-react-hooks";
 import { selectBallCount } from "client/store/ball";
+import { playSound } from "client/utils/sound";
+import { SOUNDS } from "client/constants/sounds";
 
 export function BallCounter() {
 	const page = useSelector(selectPage);
@@ -66,9 +68,11 @@ export function BallCounter() {
 				Text=""
 				Event={{
 					MouseButton1Down: () => {
+						setClicking(true);
+
 						page !== "STORE" ? producer.setPage("STORE") : producer.setPage(undefined);
 
-						setClicking(true);
+						playSound(SOUNDS.tap);
 					},
 					MouseButton1Up: () => {
 						setClicking(false);
