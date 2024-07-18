@@ -13,13 +13,13 @@ interface BallProduct extends Product {
 export const BALL_PRODUCTS: Record<string, BallProduct> = {
 	BUCKET: {
 		icon: images.ui.bucket,
-		name: "Ball Bucket",
+		name: "Bucket O' Balls",
 		id: 1879629620,
 		value: 100,
 	},
 	POOL: {
 		icon: images.ui.pool,
-		name: "Ball Pool",
+		name: "Pool O' Balls",
 		id: 1879630349,
 		value: 500,
 	},
@@ -27,11 +27,11 @@ export const BALL_PRODUCTS: Record<string, BallProduct> = {
 		icon: images.ui.city,
 		name: "City O' Balls",
 		id: 1879632424,
-		value: 4000,
+		value: 2500,
 	},
 	WORLD: {
 		icon: images.ui.world,
-		name: "Ball World",
+		name: "Planet Ball",
 		id: 1879634560,
 		value: 15000,
 	},
