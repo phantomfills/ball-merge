@@ -6,7 +6,6 @@ import { Text } from "../ui/text";
 import { fonts } from "client/constants/fonts";
 import { Shadow } from "../ui/shadow";
 import { style } from "client/constants/style";
-import { Outline } from "../ui/outline";
 
 interface BallCounterProps {
 	count: number;
