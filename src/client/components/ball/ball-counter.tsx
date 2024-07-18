@@ -1,4 +1,4 @@
-import React from "@rbxts/react";
+import React, { useEffect, useState } from "@rbxts/react";
 import { Frame } from "../ui/frame";
 import { Image } from "../ui/image";
 import { images } from "shared/assets";
@@ -9,21 +9,33 @@ import { style } from "client/constants/style";
 import { producer } from "client/store";
 import { useSelector } from "@rbxts/react-reflex";
 import { selectPage } from "client/store/page";
+import { lerpBinding, Spring, useMotor } from "@rbxts/pretty-react-hooks";
+import { selectBallCount } from "client/store/ball";
 
-interface BallCounterProps {
-	count: number;
-}
-
-export function BallCounter({ count }: BallCounterProps) {
+export function BallCounter() {
 	const page = useSelector(selectPage);
+	const count = useSelector(selectBallCount);
+
+	const [clicking, setClicking] = useState(false);
+	const [clickTransition, setClickTransition] = useMotor(0);
+
+	useEffect(() => {
+		setClickTransition(
+			new Spring(clicking ? 1 : 0, {
+				dampingRatio: 0.4,
+				frequency: 5,
+			}),
+		);
+	}, [clicking]);
 
 	return (
 		<Frame
-			size={new UDim2(0, 110, 0, 50)}
-			position={new UDim2(0, 10, 1, -60)}
+			size={lerpBinding(clickTransition, new UDim2(0, 110, 0, 50), new UDim2(0, 120, 0, 60))}
+			position={new UDim2(0, 10, 1, -10)}
 			backgroundColor={style.overlay}
 			backgroundTransparency={0.25}
 			cornerRadius={new UDim(0, 8)}
+			anchorPoint={new Vector2(0, 1)}
 		>
 			<Shadow shadowBlur={1} shadowSize={new UDim2(0, 10, 0, 10)} shadowColor={new Color3(0, 0, 0)} />
 			<Frame size={new UDim2(0, 10, 1, 0)} backgroundColor={style.outline} cornerRadius={new UDim(0, 8)}>
@@ -53,8 +65,13 @@ export function BallCounter({ count }: BallCounterProps) {
 				BackgroundTransparency={1}
 				Text=""
 				Event={{
-					MouseButton1Click: () => {
+					MouseButton1Down: () => {
 						page !== "STORE" ? producer.setPage("STORE") : producer.setPage(undefined);
+
+						setClicking(true);
+					},
+					MouseButton1Up: () => {
+						setClicking(false);
 					},
 				}}
 			/>
