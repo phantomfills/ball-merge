@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@rbxts/catppuccin": "^1.0.2",
+    "@rbxts/object-utils": "^1.0.4",
     "@rbxts/observers": "^0.3.3",
     "@rbxts/pretty-react-hooks": "^0.4.2",
     "@rbxts/react": "^0.3.6",

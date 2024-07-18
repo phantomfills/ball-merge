@@ -9,6 +9,7 @@ import { Text } from "../ui/text";
 import { fonts } from "client/constants/fonts";
 import { useProductPrice } from "client/hooks/use-product-price";
 import { MarketplaceService, Players } from "@rbxts/services";
+import Object from "@rbxts/object-utils";
 
 export function Store() {
 	const promptPurchase = (id: number) => {
@@ -35,7 +36,7 @@ export function Store() {
 			<Frame size={new UDim2(1, 0, 1, 0)} backgroundTransparency={1}>
 				<uipadding PaddingTop={new UDim(0, 10)} PaddingLeft={new UDim(0, 10)} />
 				<uigridlayout CellSize={new UDim2(1, 0, 0, 50)} CellPadding={new UDim2(0, 0, 0, 10)} />
-				{BALL_PRODUCTS.map(({ name, id, icon }) => {
+				{Object.values(BALL_PRODUCTS).map(({ name, id, icon, value }) => {
 					const price = useProductPrice(id);
 
 					return (
@@ -50,7 +51,7 @@ export function Store() {
 								<Image size={new UDim2(0, 50, 0, 50)} image={icon} />
 								<Text
 									size={new UDim2(0, 260, 0, 30)}
-									text={name}
+									text={`${name} (${value})`}
 									textColor={style.text}
 									textScaled={true}
 									font={fonts.robotoMono.regular}

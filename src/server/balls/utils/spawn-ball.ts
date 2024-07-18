@@ -16,7 +16,7 @@ export function getRandomImpulse(min: number, max: number) {
 export function spawnBall(
 	ballNumber: number,
 	impulse: Vector3 = new Vector3(0, 0, 0),
-	position: Vector3 = new Vector3(0, 10, 0),
+	position: Vector3 = new Vector3(0, 5, 0),
 ) {
 	const ballIndex = ballNumber - 1;
 	const ballTemplate = BALLS[ballIndex];
