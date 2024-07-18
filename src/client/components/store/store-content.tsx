@@ -45,7 +45,7 @@ export function StoreContent() {
 								<Image size={new UDim2(0, 50, 0, 50)} image={icon} />
 								<Text
 									richText
-									size={new UDim2(0, 260, 0, 30)}
+									size={new UDim2(0, 260, 0, 25)}
 									text={`${name} <b>(${value})</b>`}
 									textColor={style.text}
 									textScaled
