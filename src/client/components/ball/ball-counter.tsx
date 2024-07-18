@@ -77,6 +77,9 @@ export function BallCounter() {
 					MouseButton1Up: () => {
 						setClicking(false);
 					},
+					MouseLeave: () => {
+						setClicking(false);
+					},
 				}}
 			/>
 		</Frame>
