@@ -18,7 +18,7 @@ export function StoreContent() {
 	return (
 		<Frame
 			size={new UDim2(0, 450, 0, 50)}
-			position={new UDim2(0.5, 0, 0.5, 0)}
+			position={new UDim2(0.5, 0, 0.5, -10)}
 			anchorPoint={new Vector2(0.5, 0.5)}
 			backgroundTransparency={1}
 		>
