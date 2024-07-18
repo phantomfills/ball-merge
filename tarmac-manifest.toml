@@ -12,3 +12,23 @@ packable = false
 hash = "d1b211a8eaaf1a834836d63b984aaf85538b10e34a714d06fc65ba0faf440af6"
 id = 17011099975
 packable = false
+
+[inputs."assets/images/ui/bucket.png"]
+hash = "1bc868dd3102966f94a47e3b48ec472d755661889e6a1d5e8e9548ad1ccda563"
+id = 18544974935
+packable = false
+
+[inputs."assets/images/ui/city.png"]
+hash = "3b252978f423add903109f0c9fab557a7475378174bd888fad36260dba65d67d"
+id = 18544975249
+packable = false
+
+[inputs."assets/images/ui/pool.png"]
+hash = "d4f5c661c4aebd3720cf21c676e34c1e3e25baa7e57aba9d53edbe6fb686e85c"
+id = 18544991678
+packable = false
+
+[inputs."assets/images/ui/world.png"]
+hash = "f5ff86081b98b73a38e7763eeffe191623770632325f33d728a2cc6f4cc1e486"
+id = 18544975523
+packable = false
