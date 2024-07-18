@@ -6,12 +6,17 @@ import { Text } from "../ui/text";
 import { fonts } from "client/constants/fonts";
 import { Shadow } from "../ui/shadow";
 import { style } from "client/constants/style";
+import { producer } from "client/store";
+import { useSelector } from "@rbxts/react-reflex";
+import { selectPage } from "client/store/page";
 
 interface BallCounterProps {
 	count: number;
 }
 
 export function BallCounter({ count }: BallCounterProps) {
+	const page = useSelector(selectPage);
+
 	return (
 		<Frame
 			size={new UDim2(0, 110, 0, 50)}
@@ -41,6 +46,17 @@ export function BallCounter({ count }: BallCounterProps) {
 				text={tostring(count)}
 				font={fonts.robotoMono.regular}
 				textXAlignment="Left"
+			/>
+
+			<textbutton
+				Size={new UDim2(1, 0, 1, 0)}
+				BackgroundTransparency={1}
+				Text=""
+				Event={{
+					MouseButton1Click: () => {
+						page !== "STORE" ? producer.setPage("STORE") : producer.setPage(undefined);
+					},
+				}}
 			/>
 		</Frame>
 	);

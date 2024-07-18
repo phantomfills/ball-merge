@@ -8,11 +8,11 @@ interface PageState {
 }
 
 const initialState: PageState = {
-	page: "STORE",
+	page: undefined,
 };
 
 export const pageSlice = createProducer(initialState, {
-	setPage: (state, page: Page) => {
+	setPage: (state, page: Page | undefined) => {
 		return {
 			...state,
 			page,
