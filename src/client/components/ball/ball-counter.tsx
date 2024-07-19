@@ -19,7 +19,6 @@ export function BallCounter() {
 	return (
 		<ReactiveButton
 			size={new UDim2(0, 110, 0, 50)}
-			animateSizeStrength={0.3}
 			position={new UDim2(0, 10, 1, -65)}
 			backgroundColor={style.overlay}
 			backgroundTransparency={0.25}

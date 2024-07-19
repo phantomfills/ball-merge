@@ -8,7 +8,7 @@ import { style } from "client/constants/style";
 import { fonts } from "client/constants/fonts";
 import { SOUNDS } from "client/constants/sounds";
 import { useProductPrice } from "client/hooks/use-product-price";
-import { lerpBinding, Spring, useMotor } from "@rbxts/pretty-react-hooks";
+import { ReactiveButton } from "../ui/reactive-button";
 
 interface BallProductProps {
 	name: string;
@@ -18,18 +18,6 @@ interface BallProductProps {
 }
 
 export function BallProduct({ name, icon, id, value }: BallProductProps) {
-	const [buyHover, setBuyHover] = useState(false);
-	const [buyTransition, setBuyTransition] = useMotor(0);
-
-	useEffect(() => {
-		setBuyTransition(
-			new Spring(buyHover ? 1 : 0, {
-				dampingRatio: 0.4,
-				frequency: 5,
-			}),
-		);
-	}, [buyHover]);
-
 	const price = useProductPrice(id);
 
 	const promptPurchase = async () => {
@@ -54,10 +42,14 @@ export function BallProduct({ name, icon, id, value }: BallProductProps) {
 				font={fonts.robotoMono.regular}
 				textXAlignment="Left"
 			/>
-			<Frame
-				size={lerpBinding(buyTransition, new UDim2(0, 100, 0, 30), new UDim2(0, 110, 0, 33))}
+			<ReactiveButton
+				size={new UDim2(0, 100, 0, 30)}
 				cornerRadius={new UDim(0, 8)}
 				backgroundColor={style.text}
+				onClick={() => {
+					playSound(SOUNDS.buy);
+					promptPurchase();
+				}}
 			>
 				<Text
 					size={new UDim2(1, 0, 1, 0)}
@@ -65,26 +57,7 @@ export function BallProduct({ name, icon, id, value }: BallProductProps) {
 					font={fonts.robotoMono.regular}
 					textColor={style.background}
 				/>
-				<textbutton
-					Text=""
-					Size={new UDim2(1, 20, 1, 20)}
-					Position={new UDim2(0, -10, 0, -10)}
-					BackgroundTransparency={1}
-					ZIndex={2}
-					Event={{
-						MouseButton1Click: () => {
-							playSound(SOUNDS.buy);
-							promptPurchase();
-						},
-						MouseEnter: () => {
-							setBuyHover(true);
-						},
-						MouseLeave: () => {
-							setBuyHover(false);
-						},
-					}}
-				/>
-			</Frame>
+			</ReactiveButton>
 		</Frame>
 	);
 }

@@ -58,7 +58,7 @@ export function ReactiveButton({
 	animatePositionStrength = 1,
 	animatePositionDirection = new Vector2(0, 1),
 	animateSize = true,
-	animateSizeStrength = 1,
+	animateSizeStrength = 0.25,
 	event,
 	change,
 	children,
