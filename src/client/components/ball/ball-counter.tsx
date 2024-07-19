@@ -44,6 +44,7 @@ export function BallCounter() {
 				<Frame size={new UDim2(0, 5, 1, 0)} position={new UDim2(0, 5, 0, 0)} backgroundColor={style.outline} />
 			</Frame>
 			<Image size={new UDim2(0, 30, 0, 30)} position={new UDim2(0, 15, 0, 10)} image={images.ui.ball} />
+
 			<Text
 				size={new UDim2(0, 30, 0, 20)}
 				position={new UDim2(0, 45, 0, 5)}
@@ -60,6 +61,14 @@ export function BallCounter() {
 				text={tostring(count)}
 				font={fonts.robotoMono.regular}
 				textXAlignment="Left"
+			/>
+			<Text
+				size={new UDim2(0, 25, 0, 25)}
+				position={new UDim2(1, -25, 0, 0)}
+				textScaled
+				text="+"
+				font={fonts.inter.bold}
+				textColor={style.text}
 			/>
 
 			<textbutton
