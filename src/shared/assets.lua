@@ -7,10 +7,10 @@ return {
 		ui = {
 			ball = "rbxassetid://17011300468",
 			blur = "rbxassetid://17011099975",
-			bucket = "rbxassetid://18544974935",
-			city = "rbxassetid://18544975249",
-			pool = "rbxassetid://18544991678",
-			world = "rbxassetid://18544975523",
+			bucket = "rbxassetid://18559383985",
+			city = "rbxassetid://18559424305",
+			pool = "rbxassetid://18559414411",
+			world = "rbxassetid://18559414557",
 		},
 	},
 }
