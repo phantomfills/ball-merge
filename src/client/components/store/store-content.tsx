@@ -1,22 +1,9 @@
 import React from "@rbxts/react";
-import Object from "@rbxts/object-utils";
-import { BALL_PRODUCTS } from "shared/constants/products";
 import { Shadow } from "../ui/shadow";
 import { Frame } from "../ui/frame";
-import { useProductPrice } from "client/hooks/use-product-price";
-import { Image } from "../ui/image";
-import { Text } from "../ui/text";
-import { style } from "client/constants/style";
-import { fonts } from "client/constants/fonts";
-import { MarketplaceService, Players } from "@rbxts/services";
-import { playSound } from "client/utils/sound";
-import { SOUNDS } from "client/constants/sounds";
+import { BallProducts } from "./ball-products";
 
 export function StoreContent() {
-	const promptPurchase = async (id: number) => {
-		MarketplaceService.PromptProductPurchase(Players.LocalPlayer, id);
-	};
-
 	return (
 		<Frame
 			size={new UDim2(0, 450, 0, 50)}
@@ -32,56 +19,7 @@ export function StoreContent() {
 					CellPadding={new UDim2(0, 0, 0, 10)}
 					VerticalAlignment={Enum.VerticalAlignment.Center}
 				/>
-				{Object.values(BALL_PRODUCTS).map(({ name, id, icon, value }) => {
-					const price = useProductPrice(id);
-
-					return (
-						<>
-							<Frame backgroundTransparency={1} key={id}>
-								<uilistlayout
-									FillDirection="Horizontal"
-									HorizontalAlignment="Left"
-									VerticalAlignment="Center"
-									Padding={new UDim(0, 10)}
-								/>
-								<Image size={new UDim2(0, 50, 0, 50)} image={icon} />
-								<Text
-									richText
-									size={new UDim2(0, 260, 0, 25)}
-									text={`${name} <b>(${value})</b>`}
-									textColor={style.text}
-									textScaled
-									font={fonts.robotoMono.regular}
-									textXAlignment="Left"
-								/>
-								<Frame
-									size={new UDim2(0, 100, 0, 30)}
-									cornerRadius={new UDim(0, 8)}
-									backgroundColor={style.text}
-								>
-									<Text
-										size={new UDim2(1, 0, 1, 0)}
-										text={`${RobloxEmoji.Robux}${price}`}
-										font={fonts.robotoMono.regular}
-										textColor={style.background}
-									/>
-									<textbutton
-										Text=""
-										Size={new UDim2(1, 0, 1, 0)}
-										BackgroundTransparency={1}
-										ZIndex={2}
-										Event={{
-											MouseButton1Click: () => {
-												playSound(SOUNDS.buy);
-												promptPurchase(id);
-											},
-										}}
-									/>
-								</Frame>
-							</Frame>
-						</>
-					);
-				})}
+				<BallProducts />
 			</Frame>
 		</Frame>
 	);
