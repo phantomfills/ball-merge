@@ -1,4 +1,4 @@
-export const springProps = {
+export const SPRING_PROPS = {
 	bubbly: {
 		dampingRatio: 0.2,
 		frequency: 7,

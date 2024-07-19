@@ -1,13 +1,13 @@
 import React, { useEffect } from "@rbxts/react";
 import { Frame } from "../ui/frame";
 import { lerpBinding, Spring, useMotor } from "@rbxts/pretty-react-hooks";
-import { springProps } from "client/constants/spring-props";
+import { SPRING_PROPS } from "client/constants/spring-props";
 
 export function StoreOverlay() {
 	const [showTransition, setShowTransition] = useMotor(0);
 
 	useEffect(() => {
-		setShowTransition(new Spring(1, springProps.responsive));
+		setShowTransition(new Spring(1, SPRING_PROPS.responsive));
 	}, []);
 
 	return (

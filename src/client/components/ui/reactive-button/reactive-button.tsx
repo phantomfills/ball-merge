@@ -10,7 +10,7 @@ import { useButtonAnimation } from "./use-button-animation";
 import { useButtonState } from "./use-button-state";
 import { playSound } from "client/utils/sound";
 import { SOUNDS } from "client/constants/sounds";
-import { springProps } from "client/constants/spring-props";
+import { SPRING_PROPS } from "client/constants/spring-props";
 
 interface ReactiveButtonProps extends React.PropsWithChildren {
 	onClick?: () => void;
@@ -70,7 +70,7 @@ export function ReactiveButton({
 	const animation = useButtonAnimation(press, hover);
 
 	useUpdateEffect(() => {
-		setSizeTransition(new Spring(press ? 1 : 0, springProps.responsive));
+		setSizeTransition(new Spring(press ? 1 : 0, SPRING_PROPS.responsive));
 	}, [press]);
 
 	useUpdateEffect(() => {

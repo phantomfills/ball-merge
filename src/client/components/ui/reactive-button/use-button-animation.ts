@@ -1,7 +1,7 @@
 import { Spring, useUpdateEffect } from "@rbxts/pretty-react-hooks";
 import React, { useMemo } from "@rbxts/react";
 import { useMotor } from "@rbxts/pretty-react-hooks";
-import { springProps } from "client/constants/spring-props";
+import { SPRING_PROPS } from "client/constants/spring-props";
 
 export interface ButtonAnimation {
 	/**
@@ -44,34 +44,34 @@ export function useButtonAnimation(pressedState: boolean, hoveredState: boolean)
 	const [positionTransition, setPositionTransition] = useMotor(0);
 
 	useUpdateEffect(() => {
-		setPressTransition(new Spring(pressedState ? 1 : 0, springProps.bubbly));
-		setHoverExclusiveTransition(new Spring(hoveredState && !pressedState ? 1 : 0, springProps.responsive));
+		setPressTransition(new Spring(pressedState ? 1 : 0, SPRING_PROPS.bubbly));
+		setHoverExclusiveTransition(new Spring(hoveredState && !pressedState ? 1 : 0, SPRING_PROPS.responsive));
 	}, [pressedState, hoveredState]);
 
 	useUpdateEffect(() => {
-		setHoverTransition(new Spring(hoveredState ? 1 : 0, springProps.responsive));
+		setHoverTransition(new Spring(hoveredState ? 1 : 0, SPRING_PROPS.responsive));
 	}, [hoveredState]);
 
 	useUpdateEffect(() => {
 		if (pressedState) {
 			// hovered -> pressed
-			setPositionTransition(new Spring(1, springProps.responsive));
+			setPositionTransition(new Spring(1, SPRING_PROPS.responsive));
 		} else if (hoveredState) {
 			// pressed -> hovered
-			setPositionTransition(new Spring(-1, springProps.bubbly));
+			setPositionTransition(new Spring(-1, SPRING_PROPS.bubbly));
 		} else {
 			// pressed -> unhovered, but 'hover' was not true
-			setPositionTransition(new Spring(0, springProps.bubbly));
+			setPositionTransition(new Spring(0, SPRING_PROPS.bubbly));
 		}
 	}, [pressedState]);
 
 	useUpdateEffect(() => {
 		if (hoveredState) {
 			// unhovered -> hovered
-			setPositionTransition(new Spring(-1, springProps.responsive));
+			setPositionTransition(new Spring(-1, SPRING_PROPS.responsive));
 		} else {
 			// hovered -> unhovered
-			setPositionTransition(new Spring(0, springProps.responsive));
+			setPositionTransition(new Spring(0, SPRING_PROPS.responsive));
 		}
 	}, [hoveredState]);
 
