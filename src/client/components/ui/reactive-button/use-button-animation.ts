@@ -44,12 +44,7 @@ export function useButtonAnimation(pressedState: boolean, hoveredState: boolean)
 	const [positionTransition, setPositionTransition] = useMotor(0);
 
 	useUpdateEffect(() => {
-		setPressTransition(
-			new Spring(pressedState ? 1 : 0, {
-				dampingRatio: 1,
-				frequency: 5,
-			}),
-		);
+		setPressTransition(new Spring(pressedState ? 1 : 0, springProps.bubbly));
 		setHoverExclusiveTransition(new Spring(hoveredState && !pressedState ? 1 : 0, springProps.responsive));
 	}, [pressedState, hoveredState]);
 
