@@ -18,13 +18,23 @@ export function BallCounter() {
 	const page = useSelector(selectPage);
 	const count = useSelector(selectBallCount);
 
+	const [hovering, setHovering] = useState(false);
 	const [clicking, setClicking] = useState(false);
-	const [clickTransition, setClickTransition] = useMotor(0);
+	const [interactionTransition, setInteractionTransition] = useMotor(0);
 
 	useEffect(() => {
-		setClickTransition(
+		setInteractionTransition(
+			new Spring(hovering ? -0.5 : 0, {
+				dampingRatio: 0.45,
+				frequency: 5,
+			}),
+		);
+	}, [hovering]);
+
+	useEffect(() => {
+		setInteractionTransition(
 			new Spring(clicking ? 1 : 0, {
-				dampingRatio: 0.4,
+				dampingRatio: 0.35,
 				frequency: 5,
 			}),
 		);
@@ -32,8 +42,8 @@ export function BallCounter() {
 
 	return (
 		<Frame
-			size={lerpBinding(clickTransition, new UDim2(0, 110, 0, 50), new UDim2(0, 120, 0, 60))}
-			position={new UDim2(0, 10, 1, -10)}
+			size={new UDim2(0, 110, 0, 50)}
+			position={lerpBinding(interactionTransition, new UDim2(0, 10, 1, -10), new UDim2(0, 10, 1, -20))}
 			backgroundColor={style.overlay}
 			backgroundTransparency={0.25}
 			cornerRadius={new UDim(0, 8)}
@@ -86,7 +96,11 @@ export function BallCounter() {
 					MouseButton1Up: () => {
 						setClicking(false);
 					},
+					MouseEnter: () => {
+						setHovering(true);
+					},
 					MouseLeave: () => {
+						setHovering(false);
 						setClicking(false);
 					},
 				}}
