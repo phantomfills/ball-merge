@@ -21,18 +21,18 @@ export const BALL_PRODUCTS: Record<string, BallProduct> = {
 		icon: images.ui.pool,
 		name: "Pool O' Balls",
 		id: 1879630349,
-		value: 500,
+		value: 250,
 	},
 	CITY: {
 		icon: images.ui.city,
 		name: "City O' Balls",
 		id: 1879632424,
-		value: 2500,
+		value: 800,
 	},
 	WORLD: {
 		icon: images.ui.world,
 		name: "Planet Ball",
 		id: 1879634560,
-		value: 15000,
+		value: 3000,
 	},
 } as const;
