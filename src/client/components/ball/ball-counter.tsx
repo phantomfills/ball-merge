@@ -58,7 +58,7 @@ export function BallCounter() {
 			<Text
 				size={new UDim2(0, 30, 0, 20)}
 				position={new UDim2(0, 45, 0, 5)}
-				textScaled={true}
+				textScaled
 				textColor={style.text}
 				text="Balls"
 				font={fonts.inter.bold}
@@ -66,7 +66,7 @@ export function BallCounter() {
 			<Text
 				size={new UDim2(0, 100, 0, 25)}
 				position={new UDim2(0, 50, 0, 20)}
-				textScaled={true}
+				textScaled
 				textColor={style.text}
 				text={tostring(count)}
 				font={fonts.robotoMono.regular}
