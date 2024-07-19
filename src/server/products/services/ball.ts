@@ -6,7 +6,9 @@ function spawnBalls(amount: number) {
 	for (let i = 0; i < amount; i++) {
 		task.wait(0.01);
 
-		spawnBall(1);
+		const x = math.random(-30, 30);
+		const z = math.random(-30, 30);
+		spawnBall(1, new Vector3(0, 0, 0), new Vector3(x, 5, z));
 	}
 }
 
