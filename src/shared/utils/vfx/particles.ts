@@ -1,13 +1,13 @@
 import { Debris, Workspace } from "@rbxts/services";
 import { images } from "shared/assets";
 
-export function createMergeParticles(
+export const createMergeParticles = (
 	position: Vector3,
 	count: number = 5,
 	size: number = 1,
 	speed: number = 20,
 	color: Color3 = Color3.fromRGB(255, 255, 255),
-) {
+) => {
 	const particlePart = new Instance("Part");
 	particlePart.Size = new Vector3(1, 1, 1);
 	particlePart.Position = position;
@@ -38,4 +38,4 @@ export function createMergeParticles(
 	particleEmitter.Emit(count);
 
 	Debris.AddItem(particlePart, 1);
-}
+};
