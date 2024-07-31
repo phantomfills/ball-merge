@@ -4,6 +4,8 @@ const ballsFolder = ReplicatedStorage.assets.balls;
 
 export const BALL_SPAWN_INTERVAL = 1;
 
+export const MAX_BALLS = 100;
+
 export const BALLS = [
 	ballsFolder.ball_1,
 	ballsFolder.ball_2,
