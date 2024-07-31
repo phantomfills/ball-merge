@@ -1,6 +1,11 @@
 interface ReplicatedStorage extends Instance {
 	TS: Folder & {
+		assets: ModuleScript;
 		utils: Folder & {
+			vfx: ModuleScript & {
+				particles: ModuleScript;
+				merge: ModuleScript;
+			};
 			sound: ModuleScript & {
 				["create-sound"]: ModuleScript;
 			};
@@ -8,40 +13,60 @@ interface ReplicatedStorage extends Instance {
 				["object-utils"]: ModuleScript;
 			};
 		};
+		constants: Folder & {
+			products: ModuleScript;
+			ball: ModuleScript;
+			attributes: ModuleScript;
+			tags: ModuleScript;
+		};
 	};
 	assets: Folder & {
 		balls: Folder & {
-			ball_4: Part;
+			ball_4: Part & {
+				face: Decal;
+			};
 			ball_13: Part & {
-				particles: ParticleEmitter;
 				face: Decal;
 			};
-			ball_8: Part;
-			ball_11: Part & {
-				particles: ParticleEmitter;
-				face: Decal;
-			};
-			ball_5: Part;
-			ball_1: Part;
 			ball_15: Part & {
 				face: Decal;
 			};
-			ball_6: Part;
-			ball_7: Part;
-			ball_2: Part;
-			ball_3: Part;
-			ball_14: Part & {
-				particles: ParticleEmitter;
+			ball_11: Part & {
 				face: Decal;
 			};
-			ball_12: Part & {
-				particles: ParticleEmitter;
+			ball_5: Part & {
+				face: Decal;
+			};
+			ball_1: Part & {
+				face: Decal;
+			};
+			ball_9: Part & {
+				face: Decal;
+			};
+			ball_14: Part & {
+				face: Decal;
+			};
+			ball_7: Part & {
+				face: Decal;
+			};
+			ball_2: Part & {
 				face: Decal;
 			};
 			ball_10: Part & {
 				face: Decal;
 			};
-			ball_9: Part;
+			ball_8: Part & {
+				face: Decal;
+			};
+			ball_6: Part & {
+				face: Decal;
+			};
+			ball_3: Part & {
+				face: Decal;
+			};
+			ball_12: Part & {
+				face: Decal;
+			};
 		};
 	};
 	rbxts_include: Folder & {
@@ -116,8 +141,8 @@ interface ReplicatedStorage extends Instance {
 						["use-async-effect"]: ModuleScript & {
 							["use-async-effect"]: ModuleScript;
 						};
-						["use-viewport"]: ModuleScript & {
-							["use-viewport"]: ModuleScript;
+						["use-debounce-effect"]: ModuleScript & {
+							["use-debounce-effect"]: ModuleScript;
 						};
 						["use-binding-listener"]: ModuleScript & {
 							["use-binding-listener"]: ModuleScript;
@@ -125,8 +150,8 @@ interface ReplicatedStorage extends Instance {
 						["use-async"]: ModuleScript & {
 							["use-async"]: ModuleScript;
 						};
-						["use-debounce-effect"]: ModuleScript & {
-							["use-debounce-effect"]: ModuleScript;
+						["use-viewport"]: ModuleScript & {
+							["use-viewport"]: ModuleScript;
 						};
 						["use-throttle-effect"]: ModuleScript & {
 							["use-throttle-effect"]: ModuleScript;
@@ -158,6 +183,9 @@ interface ReplicatedStorage extends Instance {
 					};
 				};
 				["react-roblox"]: ModuleScript;
+				catppuccin: Folder & {
+					out: ModuleScript;
+				};
 				["set-timeout"]: Folder & {
 					out: ModuleScript & {
 						["set-countdown"]: ModuleScript;
@@ -175,6 +203,22 @@ interface ReplicatedStorage extends Instance {
 				["compiler-types"]: Folder & {
 					types: Folder;
 				};
+				["object-utils"]: ModuleScript;
+				types: Folder & {
+					include: Folder & {
+						generated: Folder;
+					};
+				};
+				observers: Folder & {
+					out: ModuleScript & {
+						observeProperty: ModuleScript;
+						observeAttribute: ModuleScript;
+						observeTag: ModuleScript;
+						observePlayer: ModuleScript;
+						observeCharacter: ModuleScript;
+					};
+				};
+				services: ModuleScript;
 				reflex: Folder & {
 					src: ModuleScript & {
 						createProducer: ModuleScript;
@@ -198,6 +242,22 @@ interface ReplicatedStorage extends Instance {
 						applyMiddleware: ModuleScript;
 						types: ModuleScript;
 					};
+				};
+				react: ModuleScript & {
+					tags: ModuleScript;
+				};
+				["react-reflex"]: ModuleScript & {
+					React: ModuleScript;
+					hooks: Folder & {
+						useSelector: ModuleScript;
+						useSelectorCreator: ModuleScript;
+						useProducer: ModuleScript;
+					};
+					components: Folder & {
+						ReflexContext: ModuleScript;
+						ReflexProvider: ModuleScript;
+					};
+					Reflex: ModuleScript;
 				};
 				ReactLua: Folder & {
 					node_modules: Folder & {
@@ -652,23 +712,6 @@ interface ReplicatedStorage extends Instance {
 					ReactDebugTools: ModuleScript;
 					ReactCache: ModuleScript;
 				};
-				services: ModuleScript;
-				react: ModuleScript & {
-					tags: ModuleScript;
-				};
-				["react-reflex"]: ModuleScript & {
-					React: ModuleScript;
-					hooks: Folder & {
-						useSelector: ModuleScript;
-						useSelectorCreator: ModuleScript;
-						useProducer: ModuleScript;
-					};
-					components: Folder & {
-						ReflexContext: ModuleScript;
-						ReflexProvider: ModuleScript;
-					};
-					Reflex: ModuleScript;
-				};
 				flipper: Folder & {
 					typings: Folder;
 					src: ModuleScript & {
@@ -680,11 +723,6 @@ interface ReplicatedStorage extends Instance {
 						Instant: ModuleScript;
 						Linear: ModuleScript;
 						BaseMotor: ModuleScript;
-					};
-				};
-				types: Folder & {
-					include: Folder & {
-						generated: Folder;
 					};
 				};
 			};

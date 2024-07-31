@@ -32,6 +32,7 @@
     "@rbxts/react-reflex": "^0.3.4",
     "@rbxts/react-roblox": "^0.3.6",
     "@rbxts/reflex": "^4.3.1",
-    "@rbxts/services": "^1.5.4"
+    "@rbxts/services": "^1.5.4",
+    "@rbxts/set-timeout": "^1.1.2"
   }
 }
