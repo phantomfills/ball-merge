@@ -49,8 +49,8 @@ function handleBallAdded(part: BasePart) {
 }
 
 export function initCombinerService() {
-	observeTag(TAGS.BALL, (instance: BasePart) => {
-		handleBallAdded(instance);
+	observeTag(TAGS.BALL, (part: BasePart) => {
+		handleBallAdded(part);
 
 		return () => {};
 	});
