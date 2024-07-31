@@ -4,14 +4,13 @@ import { spawnBall } from "../utils";
 import { ATTRIBUTES } from "shared/constants/attributes";
 import { ballNumberIsOutOfBounds, BALLS } from "shared/constants/ball";
 import { createMergeParticles } from "shared/utils/vfx";
+import { observeTag } from "@rbxts/observers";
 
-function handleBallAdded(ball: Instance) {
-	if (!ball.IsA("BasePart")) return;
-
-	const ballNumber = ball.GetAttribute(ATTRIBUTES.BALL_NUMBER);
+function handleBallAdded(part: BasePart) {
+	const ballNumber = part.GetAttribute(ATTRIBUTES.BALL_NUMBER);
 	if (ballNumber === undefined || !typeIs(ballNumber, "number")) return;
 
-	ball.Touched.Connect((touchedBall) => {
+	part.Touched.Connect((touchedBall) => {
 		if (!CollectionService.HasTag(touchedBall, TAGS.BALL)) return;
 		if (!touchedBall.IsA("BasePart")) return;
 
@@ -23,7 +22,7 @@ function handleBallAdded(ball: Instance) {
 		if (ballNumberIsOutOfBounds(newBallNumber)) return;
 
 		// Find max velocity of the two balls and apply it to the new ball
-		const ballVelocity1 = ball.AssemblyLinearVelocity;
+		const ballVelocity1 = part.AssemblyLinearVelocity;
 		const ballVelocity2 = touchedBall.AssemblyLinearVelocity;
 
 		const ballVelocityMagnitude1 = ballVelocity1.Magnitude;
@@ -34,7 +33,7 @@ function handleBallAdded(ball: Instance) {
 			maxBallVelocityMagnitude === ballVelocityMagnitude1 ? ballVelocity1 : ballVelocity2
 		).mul(10); // Multiply by 10 to make the new ball go faster
 
-		const newPosition = ball.Position.add(new Vector3(0, 2.5, 0));
+		const newPosition = part.Position.add(new Vector3(0, 2.5, 0));
 		spawnBall(ballNumber + 1, impulseToApply, newPosition);
 		createMergeParticles(
 			newPosition,
@@ -44,12 +43,15 @@ function handleBallAdded(ball: Instance) {
 			BALLS[newBallNumber - 1].Color,
 		);
 
-		ball.Destroy();
+		part.Destroy();
 		touchedBall.Destroy();
 	});
 }
 
 export function initCombinerService() {
-	CollectionService.GetTagged(TAGS.BALL).forEach(handleBallAdded);
-	CollectionService.GetInstanceAddedSignal(TAGS.BALL).Connect(handleBallAdded);
+	observeTag(TAGS.BALL, (instance: BasePart) => {
+		handleBallAdded(instance);
+
+		return () => {};
+	});
 }
